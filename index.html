@@ -13,17 +13,17 @@
     --text-secondary: #52514e;
     --text-muted: #7b7a75;
     --accent: #1a3a5c;
-    --bkk: #2a78d6;      /* בנגקוק */
-    --cnx: #eb6834;      /* צ'יאנג מאי */
-    --hkt: #1baf7a;      /* פוקט */
-    --kbv: #eda100;      /* קראבי */
+    --bkk: #2a78d6;
+    --cnx: #eb6834;
+    --hkt: #1baf7a;
+    --kbv: #eda100;
     --good-bg: #e7f3e7; --good-ink: #1e6b1e;
     --warn-bg: #fdf3dd; --warn-ink: #8a5a00;
     --shabbat-bg: #eef2fb; --shabbat-border: #4a6fb5;
     --card-shadow: 0 2px 10px rgba(0,0,0,0.07);
   }
   @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme="light"])) {
+    :root {
       color-scheme: dark;
       --surface-0: #121211;
       --surface-1: #1a1a19;
@@ -48,17 +48,13 @@
     background: var(--surface-0);
     color: var(--text-primary);
     font-family: "Segoe UI", "Arial", sans-serif;
-    font-size: 17px;
-    line-height: 1.85;
+    line-height: 1.7;
     padding: 16px 12px 48px;
   }
   .wrap { max-width: 860px; margin: 0 auto; }
-  header {
-    text-align: center;
-    padding: 26px 16px 18px;
-  }
-  header h1 { margin: 0 0 6px; font-size: clamp(25px, 6vw, 36px); color: var(--accent); }
-  header .sub { color: var(--text-secondary); font-size: 17px; margin: 0; }
+  header { text-align: center; padding: 26px 16px 18px; }
+  header h1 { margin: 0 0 4px; font-size: clamp(22px, 5vw, 32px); color: var(--accent); }
+  header .sub { color: var(--text-secondary); font-size: 15px; margin: 0; }
   .countdown {
     display: inline-block;
     margin-top: 12px;
@@ -66,71 +62,48 @@
     border-radius: 999px;
     padding: 6px 22px;
     box-shadow: var(--card-shadow);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     color: var(--accent);
   }
-  /* stat tiles */
   .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 18px 0; }
-  .tile {
-    background: var(--surface-1);
-    border-radius: 14px;
-    padding: 14px 10px;
-    text-align: center;
-    box-shadow: var(--card-shadow);
-  }
-  .tile .num { font-size: 32px; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
-  .tile .lbl { font-size: 15.5px; color: var(--text-secondary); }
-  /* timeline strip */
-  .card {
-    background: var(--surface-1);
-    border-radius: 14px;
-    padding: 22px 24px;
-    box-shadow: var(--card-shadow);
-    margin: 14px 0;
-  }
-  .card h2 { margin: 0 0 14px; font-size: 21px; color: var(--accent); }
+  .tile { background: var(--surface-1); border-radius: 14px; padding: 14px 10px; text-align: center; box-shadow: var(--card-shadow); }
+  .tile .num { font-size: 28px; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+  .tile .lbl { font-size: 13px; color: var(--text-secondary); }
+  .card { background: var(--surface-1); border-radius: 14px; padding: 18px 20px; box-shadow: var(--card-shadow); margin: 14px 0; }
+  .card h2 { margin: 0 0 10px; font-size: 18px; color: var(--accent); }
   .strip { display: flex; width: 100%; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; direction: rtl; }
-  .seg { position: relative; height: 50px; }
-  .seg + .seg { margin-right: 2px; } /* 2px surface gap between fills */
+  .seg { position: relative; height: 44px; }
+  .seg + .seg { margin-right: 2px; }
   .seg span {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: #fff;
+    font-size: 12px; font-weight: 700; color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,0.45);
     white-space: nowrap; overflow: hidden;
   }
-  .strip-dates { display: flex; direction: rtl; font-size: 13.5px; color: var(--text-muted); }
-  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 15px; color: var(--text-secondary); }
+  .strip-dates { display: flex; direction: rtl; font-size: 11px; color: var(--text-muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--text-secondary); }
   .legend .key { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-left: 5px; vertical-align: -1px; }
-  /* stage cards */
   .stage { border-right: 5px solid var(--stage-color, var(--accent)); }
-  .stage .dates { font-size: 15.5px; color: var(--text-muted); }
+  .stage .dates { font-size: 13px; color: var(--text-muted); }
   .stage h2 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .badge {
-    display: inline-block; font-size: 14px; font-weight: 700;
-    border-radius: 999px; padding: 2px 12px;
-  }
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 12px; }
   .badge.good { background: var(--good-bg); color: var(--good-ink); }
   .badge.warn { background: var(--warn-bg); color: var(--warn-ink); }
-  .stage ul { margin: 12px 0 0; padding: 0 18px 0 0; }
-  .stage li { margin-bottom: 10px; font-size: 17px; }
-  .hotel { font-size: 17px; color: var(--text-secondary); margin: 4px 0 0; }
+  .stage ul { margin: 8px 0 0; padding: 0 18px 0 0; }
+  .stage li { margin-bottom: 5px; font-size: 14.5px; }
+  .hotel { font-size: 14.5px; color: var(--text-secondary); margin: 4px 0 0; }
   .hotel b { color: var(--text-primary); }
-  .shabbat-box {
-    background: var(--shabbat-bg);
-    border-right: 4px solid var(--shabbat-border);
-    border-radius: 10px; padding: 12px 16px; margin-top: 14px; font-size: 16.5px;
-  }
-  /* flights table */
-  table { border-collapse: collapse; width: 100%; font-size: 16px; }
-  th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid rgba(128,128,128,0.25); vertical-align: top; }
-  th { color: var(--text-secondary); font-weight: 600; font-size: 14.5px; }
+  .shabbat-box { background: var(--shabbat-bg); border-right: 4px solid var(--shabbat-border); border-radius: 10px; padding: 8px 14px; margin-top: 10px; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 7px 10px; text-align: right; border-bottom: 1px solid rgba(128,128,128,0.25); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 600; font-size: 12.5px; }
   .en { direction: ltr; unicode-bidi: embed; font-family: "Consolas", monospace; font-size: 0.95em; }
-  .foot { text-align: center; color: var(--text-muted); font-size: 14px; margin-top: 24px; }
-  .kosher li { font-size: 16.5px; margin-bottom: 9px; }
+  .foot { text-align: center; color: var(--text-muted); font-size: 12px; margin-top: 24px; }
+  .kosher li { font-size: 14px; margin-bottom: 4px; }
   @media (max-width: 480px) {
-    .seg span { font-size: 12px; }
+    .seg span { font-size: 10px; }
     .card { padding: 14px 14px; }
   }
 </style>
@@ -191,26 +164,19 @@
   <div class="card stage" style="--stage-color: var(--bkk);">
     <h2>1 · בנגקוק <span class="badge good">✓ מלון סגור</span></h2>
     <div class="dates">שני 10.8 – שישי 14.8 · 4 לילות</div>
-    <p class="hotel">🏨 <b>Citadines Sukhumvit 16</b> — 2 סטודיו עם מטבחון, ליד רובע סוקומווית והאוכל הכשר (JCafe/JDeli) · 🔗 <a href="https://www.booking.com/hotel/th/citadines-bangkok-sukhumvit-16.html" target="_blank" rel="noopener">לצפייה בדירות בבוקינג</a></p>
+    <p class="hotel">🏨 <b>Citadines Sukhumvit 16</b> — 2 סטודיו עם מטבחון, ליד רובע סוקומווית והאוכל הכשר (JCafe/JDeli)</p>
     <ul>
+      <li>🦁 ספארי וורלד ומרין פארק — יום שלם עם דולפינים ואורנגאוטנים</li>
       <li>🏯 הארמון הגדול + שייט על נהר הצ'או פראיה</li>
       <li>🌆 מהאנקורן סקייווק — רצפת זכוכית בקומה 78!</li>
       <li>🐠 סי לייף אושן וורלד + מאדאם טוסו</li>
     </ul>
-    <div class="shabbat-box" style="background: var(--warn-bg); border-right-color: var(--kbv);">
-      🎡 <b>ילדים, אתם מחליטים!</b> יש לנו 3 ימים וחצי בבנגקוק ויום אחד מוקדש לפארק ענק — היכנסו לאתרים, התרשמו ובחרו:
-      <ul style="margin:8px 0 0;">
-        <li>🦁 <a href="https://www.safariworld.com/" target="_blank" rel="noopener"><b>ספארי וורלד</b></a> — ספארי ברכב בין אריות וג'ירפות, מופעי דולפינים ואורנגאוטנים</li>
-        <li>🎢 <a href="https://www.dreamworld.co.th/" target="_blank" rel="noopener"><b>דרים וורלד</b></a> — פארק שעשועים קלאסי: רכבות הרים, עולם שלג, מפלי עץ ענקיים</li>
-        <li>🌊 <a href="https://www.siamamazingpark.com/" target="_blank" rel="noopener"><b>סיאם אמייזינג פארק</b></a> — פארק מים עם בריכת הגלים הגדולה בעולם + 40 מתקנים</li>
-      </ul>
-    </div>
   </div>
 
   <div class="card stage" style="--stage-color: var(--cnx);">
-    <h2>2 · צ'יאנג מאי <span class="badge good">✓ דירה סגורה ושולמה</span></h2>
-    <div class="dates">שישי 14.8 – חמישי 20.8 · 6 לילות · טיסת בוקר — נסגרת בדובאי ✈</div>
-    <p class="hotel">🏡 <b>Mount View Luxury Suite — דירת 3 חדרי שינה עם בריכת גג</b> — רחוב צ'אנג קלאן, הליכה לחב"ד ולנייט בזאר · 🔗 <a href="https://www.booking.com/hotel/th/wu-bian-yong-chi-jia-ting-wen-xin-kuan-chang-wifitao-fang.html" target="_blank" rel="noopener">לצפייה בדירה בבוקינג</a></p>
+    <h2>2 · צ'יאנג מאי <span class="badge good">✓ דירה סגורה</span></h2>
+    <div class="dates">שישי 14.8 – חמישי 20.8 · 6 לילות · טיסת בוקר ב־6:00 (השכמה ב־3:15! ⏰)</div>
+    <p class="hotel">🏡 <b>דירת 3 חדרי שינה עם בריכה, ג'קוזי וסאונה</b> — רחוב צ'אנג קלאן, הליכה לחב"ד ולנייט בזאר</p>
     <ul>
       <li>🐘 מקלט פילים — מאכילים ורוחצים פילים (בלי רכיבה)</li>
       <li>💦 המפלים הדביקים — מטפסים על מפל בלי להחליק!</li>
@@ -221,9 +187,9 @@
   </div>
 
   <div class="card stage" style="--stage-color: var(--hkt);">
-    <h2>3 · פוקט <span class="badge warn">✗ בוחרים מלון חדש</span></h2>
+    <h2>3 · פוקט <span class="badge warn">⚠ מלון בתיקון תאריכים</span></h2>
     <div class="dates">חמישי 20.8 – ראשון/שני 30/31.8 (עם קפיצה לקראבי באמצע)</div>
-    <p class="hotel">🏨 המלון הקודם בוטל — בוחרים עכשיו מקום חדש (כנראה ליד חב"ד פאטונג, נוח לשבתות) 🔎</p>
+    <p class="hotel">🏨 <b>Kamala Dreams</b> בחוף קאמאלה — 2 סטודיו על הבריכה עם ארוחת בוקר (התאריכים בעדכון לתכנית החדשה)</p>
     <ul>
       <li>🌊 אנדמנדה — פארק המים הכי גדול בפוקט</li>
       <li>🚤 שייט מפרץ פאנג נגה — "האי של ג'יימס בונד" ומערות קאנו</li>
@@ -275,12 +241,12 @@
     </ul>
   </div>
 
-  <p class="foot">עודכן 8.8.2026 · המסלול המלא והמפורט נמצא אצל אבא 😎</p>
+  <p class="foot">עודכן 5.8.2026 · הדף מתעדכן אוטומטית כשמשהו בתכנית משתנה 💙</p>
 
 </div>
 <script>
   (function () {
-    var target = new Date("2026-08-09T07:00:00+03:00"); // יציאה מהבית לשדה
+    var target = new Date("2026-08-09T07:00:00+03:00");
     var el = document.getElementById("countdown");
     function tick() {
       var now = new Date();
